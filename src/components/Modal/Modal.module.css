@@ -1,0 +1,85 @@
+/* src/components/Modal/Modal.module.css */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Close Button */
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.calories {
+    font-size: 3rem;
+    color: #2C3E50;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.foodList {
+    list-style-type: decimal;
+    text-align: left;
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.foodList li {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #7F8C8D;
+}
+
+.startButton {
+    background-color: #f39c12;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.startButton:hover {
+    background-color: #e67e22;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .modalContent {
+        padding: 1.5rem;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modalContent {
+        padding: 1rem;
+        max-width: 300px;
+    }
+}

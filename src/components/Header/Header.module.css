@@ -1,0 +1,51 @@
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 1rem 2rem;
+    color: #9B9FAA;
+}
+.logo {
+    text-decoration: none;
+}
+.nav a {
+    color: #9B9FAA;;
+    margin: 0 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.nav a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.nav a:active {
+    color: #000;
+}
+
+.slimWord {
+    font-size: 16px;
+    color: #212121;
+}
+
+.momWord {
+    color: #FC842D;
+}
+
+.logoImg {
+    width: 70px;
+    height: 66px;
+    top: 80px;
+    left: 16px;
+}
+
+.inactiveLink {
+    text-decoration: none;
+    color: gray;
+}
+
+.nav a .activeLink {
+    text-decoration: none;
+    color: black;
+}

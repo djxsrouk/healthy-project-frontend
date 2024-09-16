@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Header from "../../components/Header/Header";
-import API from "../../API/api"; // Import the configured axios instance
+import API from "../../API/api";
 import styles from "./LoginPage.module.css";
 import { useNavigate } from "react-router-dom";
-import Button from "../../components/Button/Button"; // Import the custom Button component
+import Button from "../../components/Button/Button";
+import Loader from "../../components/Loader/Loader"; // Import the Loader component
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +13,8 @@ const LoginPage = () => {
   });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const navigate = useNavigate(); // Initialize useNavigate
+  const [loading, setLoading] = useState(false); // State for loading
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -23,23 +25,34 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Show the loader when the form is submitted
     try {
-      // Make POST request to the backend login API
       const response = await API.post("/login", formData);
-      const { token } = response.data;
+      const { token, username } = response.data;
 
-      // Store the token in localStorage
+      // Store token and username in localStorage
       localStorage.setItem("token", token);
+      localStorage.setItem("username", username);
+
       setSuccess("Login successful!");
       setError("");
+      setLoading(false); // Hide the loader after the request is successful
 
-      // Redirect to the main page after successful login
-      navigate("/diary");
+      console.log("Token stored:", localStorage.getItem("token"));
+      console.log("Username stored:", localStorage.getItem("username"));
+
+      navigate("/calculator");
     } catch (err) {
-      setError("Login failed. " + err.response.data.message);
+      setLoading(false); // Hide the loader in case of error
+      setError("Login failed. " + (err.response?.data?.message || err.message));
       setSuccess("");
     }
   };
+
+  // Show the loader if `loading` is true
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className={styles.container}>
@@ -48,7 +61,7 @@ const LoginPage = () => {
         <h2>Log In</h2>
         <form onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
-            <label htmlFor="email">Email*</label>
+            <label htmlFor="email">Email *</label>
             <input
               type="email"
               name="email"

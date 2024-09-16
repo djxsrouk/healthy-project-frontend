@@ -1,15 +1,37 @@
-import React, { useState } from "react";
-import Header from "../../components/Header/Header";
-import API from "../../API/api"; // Import the configured axios instance
+import React, { useState, useEffect } from "react";
+import DiaryDateCalendar from "../../components/DiaryDateCalendar/DiaryDateCalendar";
+import DiaryAddProductForm from "../../components/DiaryAddProductForm/DiaryAddProductForm";
+import DiaryProductsList from "../../components/DiaryProductsList/DiaryProductsList";
+
 import styles from "./DiaryPage.module.css";
-import { useNavigate } from "react-router-dom";
+import Header from "../../components/Header/Header";
+import Loader from "../../components/Loader/Loader";
 
 const DiaryPage = () => {
+  const [loading, setLoading] = useState(true);
+  const username = localStorage.getItem("username");
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
-    <div className={styles.container}>
+    <>
       <Header />
-      <h2>Welcome {user}</h2>
-    </div>
+      <div className={styles.container}>
+        <DiaryDateCalendar />
+        <DiaryAddProductForm />
+        <DiaryProductsList />
+      </div>
+    </>
   );
 };
 

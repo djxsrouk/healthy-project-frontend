@@ -49,3 +49,30 @@
     text-decoration: none;
     color: black;
 }
+
+.username {
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+    /* Culoarea username-ului */
+}
+
+.logoutButton {
+    background: none;
+    border: none;
+    color: #9b9b9b;
+    /* Culoare gri pentru Exit */
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    margin-left: 10px;
+    /* Spațiu între username și Exit */
+    text-decoration: none;
+    /* Fără subliniere */
+}
+
+.logoutButton:hover {
+    color: #000;
+    /* Culoare neagră la hover */
+}
+

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Header from "../../components/Header/Header";
+import { useNavigate } from "react-router-dom";
 import CaloriesForm from "../../components/CaloriesForm/CaloriesForm";
+import styles from "./Calculator.module.css";
+import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
-import styles from "./MainPage.module.css";
 
-const MainPage = () => {
+const Calculator = () => {
   const [loading, setLoading] = useState(true);
+  const username = localStorage.getItem("username");
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -13,7 +15,6 @@ const MainPage = () => {
     }, 1000);
 
     return () => clearTimeout(timeout);
-    t;
   }, []);
 
   if (loading) {
@@ -21,14 +22,13 @@ const MainPage = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <>
       <Header />
-
-      <main>
+      <div className={styles.container}>
         <CaloriesForm />
-      </main>
-    </div>
+      </div>
+    </>
   );
 };
 
-export default MainPage;
+export default Calculator;

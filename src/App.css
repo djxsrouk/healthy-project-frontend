@@ -1,0 +1,38 @@
+/* Set background color */
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #6b73ff, #000dff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container for the shapes */
+.background-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Circle Shape */
+.circle {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+/* Square Shape */
+.square {
+    position: absolute;
+    bottom: 15%;
+    right: 25%;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(45deg);
+}

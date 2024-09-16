@@ -1,0 +1,44 @@
+/* UserInfo.module.css */
+.userSection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    right: 0;
+
+}
+
+.username {
+    font-weight: bold;
+    font-size: 16px;
+    color: #000;
+    text-transform: capitalize;
+}
+
+.logoutButton {
+    background: none;
+    border: none;
+    color: #9B9FAA;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 0;
+    margin-left: 10px;
+    /* Spațiu între username și Exit */
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.logoutButton:hover {
+    color: #000;
+    /* Culoare neagră la hover */
+}
+
+.separator {
+    height: 20px;
+    width: 2px;
+    background-color: #E0E0E0;
+    margin: 0 10px;
+}
